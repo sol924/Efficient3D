@@ -1,0 +1,37 @@
+eval_only: False
+
+# data
+annotation_root: /gpfs/work/cpt/yuhuilin21/PointLLM/dataset/annotations
+attn_maps_root: /gpfs/work/cpt/yuhuilin21/PointLLM/dataset/infer_voco_2layer_processed
+#attn_maps_root: /gpfs/work/cpt/yuhuilin21/PointLLM/dataset/infer_attn_maps
+#attn_maps_root: /gpfs/work/cpt/yuhuilin21/PointLLM/Efficient3D/outputs/20251025_151744_lr5e-6_ep3_scanrefer#scan2cap#scanqa#sqa3d#multi3dref__extract_attn_maps
+
+# output
+output_dir: /gpfs/work/cpt/yuhuilin21/PointLLM/Efficient3D/DVTIE/outputs
+
+# training
+seed: 42
+# train_tags: scanrefer#scan2cap#scanqa#sqa3d#multi3dref
+train_tags: scanqa#multi3dref
+val_tags: scanrefer#scan2cap#scanqa#sqa3d#multi3dref
+#val_tags: scanrefer
+use_ori_attn_maps: False
+use_mentioned_oids_in_answers: True
+use_spatial_dec: True
+train_text_encoder: True
+train_batch_size: 64
+eval_batch_size: 64
+num_workers: 4
+gradient_accumulation_steps: 1
+max_epoch: 50
+warmup_epochs: 0.1
+val_interval: 1.0
+logging_steps: 1
+eval_train_set: False
+
+# optimizer
+text_lr: 0.00008
+lr: 0.0008
+weight_decay: 0.01
+min_lr_multi: 0.001
+max_grad_norm: 5.0
